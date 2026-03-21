@@ -14,6 +14,9 @@ public abstract class Device
         this.Model = model;
         this.Id = _nextId++;
     }
-    
 
+    public override string ToString()
+    {
+        return $"Id: {this.Id} Model: {this.Model} Is available: {this.IsAvailable}";
+    }
 }
