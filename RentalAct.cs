@@ -6,7 +6,7 @@ public class RentalAct
     public int UserId { get; set; }
     public DateTime RentalStartDate { get; set; }
     public DateTime RentalEndDate { get; set; }
-    public bool ReturnedInTime { get; set; }
+    public bool ReturnedInTime { get; set; } = true;
     public DateTime? ReturnDate
     {
         get;
@@ -27,5 +27,9 @@ public class RentalAct
         this.RentalStartDate = rentalStartDate;
         this.RentalEndDate = rentalEndDate;
     }
-    
+
+    public override string ToString()
+    {
+        return $"Device ID: {this.DeviceId} User ID: {this.UserId} From: {this.RentalStartDate.ToShortDateString()} To: {this.RentalEndDate.ToShortDateString()} In time: {this.ReturnedInTime}";
+    }
 }
