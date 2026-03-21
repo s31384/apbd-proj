@@ -39,7 +39,7 @@ public class UserService
         person.ActiveRentsCount--;
     }
 
-    public bool IsLimitExited(int UserId)
+    public bool IsLimitExceeded(int UserId)
     {
         if (!isThisUserExists(UserId))
         {
