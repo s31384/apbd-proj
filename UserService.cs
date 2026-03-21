@@ -49,4 +49,32 @@ public class UserService
         return person.ActiveRentsCount >= person.MaxRentCount;
     }
 
+    public bool IsUserCanRent(int UserId)
+    {
+        if (!isThisUserExists(UserId))
+        {
+            throw new Exception("User not found");}
+        Person person = users.Find(x => x.Id == UserId);
+        return person.CanRent;
+    }
+
+    public void PunishUser(int UserId)
+    {
+        if (!isThisUserExists(UserId))
+        {
+            throw new Exception("User not found");
+        }
+        Person person = users.Find(x => x.Id == UserId);
+
+        if (person.DelayedReturnsCount >= 3)
+        {
+            person.CanRent = false;
+        }
+        else
+        {
+            person.DelayedReturnsCount++;
+        }
+    }
+    
+
 }
