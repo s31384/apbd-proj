@@ -18,4 +18,9 @@ public abstract class Person
         this.LastName = lastName;
         this.Id = _nextId++;
     }
+
+    public override string ToString()
+    {
+        return $"Id: {this.Id} First name: {this.FirstName} Last name: {this.LastName} Active Rents: {this.ActiveRentsCount} Delayed Returns: {this.DelayedReturnsCount}";
+    }
 }
