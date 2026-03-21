@@ -14,9 +14,39 @@ public class UserService
     {
         users.Add(person);
     }
-
+    
     public bool isThisUserExists(int id)
     {
         return users.Any(x => x.Id == id);
     }
+
+    public void IncreaseRentAct(int UserId)
+    {
+        if (!isThisUserExists(UserId))
+        {
+            throw new Exception("User not found");
+        }
+        Person person = users.Find(x => x.Id == UserId);
+        person.ActiveRentsCount++;
+    }
+    public void DecreaseRentAct(int UserId)
+    {
+        if (!isThisUserExists(UserId))
+        {
+            throw new Exception("User not found");
+        }
+        Person person = users.Find(x => x.Id == UserId);
+        person.ActiveRentsCount--;
+    }
+
+    public bool IsLimitExited(int UserId)
+    {
+        if (!isThisUserExists(UserId))
+        {
+            throw new Exception("User not found");
+        }
+        Person person = users.Find(x => x.Id == UserId);
+        return person.ActiveRentsCount >= person.MaxRentCount;
+    }
+
 }
