@@ -6,7 +6,7 @@ public abstract class Device
     public double Price { get; set; }
     public bool IsAvailable { get; set;}
     public string Model { get; set;}    
-    public int Id { get; set;}
+    public int Id { get; }
     public Device(double price, bool isAvailable, string model)
     {
         this.Price = price;
