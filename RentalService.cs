@@ -114,6 +114,32 @@ public class RentalService
             }
         }
     }
+
+    public void setStatusForDevice(int DeviceId, bool status)
+    {
+        if (!this.devices.Any(x => x.Id == DeviceId))
+        {
+            throw new Exception("Device not found");
+        }
+        devices.Find(x => x.Id == DeviceId).IsAvailable = status;
+    }
+    
+    public void showAllDevices(){
+        foreach (var device in devices)
+        {
+            Console.WriteLine(device);
+        }}
+
+    public void showAvailibbleDevices()
+    {
+        foreach (var device in devices)
+        {
+            if (!device.IsAvailable)
+            {
+                Console.WriteLine(device);
+            }
+        }
+    }
     
     
 
