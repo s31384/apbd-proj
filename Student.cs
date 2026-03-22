@@ -9,5 +9,5 @@ public class Student : Person
     {
     }
 
-    public override int MaxRentCount { get; } = 3;
+    public override int MaxRentCount { get; } = 2;
 }

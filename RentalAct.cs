@@ -9,7 +9,7 @@ public class RentalAct
     public bool ReturnedInTime { get; set; } = true;
     public DateTime? ReturnDate { get; set;}
 
-    public RentalAct(int deviceId, int userId, DateTime rentalStartDate, DateTime rentalEndDate)
+    public RentalAct(int userId, int deviceId, DateTime rentalStartDate, DateTime rentalEndDate)
     {
         this.DeviceId = deviceId;
         this.UserId = userId;   
