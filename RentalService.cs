@@ -95,6 +95,28 @@ public class RentalService
         rentalActs.Remove(rentalAct);
     }
 
+    public void setRentOverdue(int UserID, int DeviceID)
+    {
+        if (!rentalActs.Any(x => x.UserId == UserID && x.DeviceId == DeviceID))
+        {
+            throw new Exception("No rental acts found from this user or with this device");
+        }
+        rentalActs.Find(x => x.UserId == UserID && x.DeviceId == DeviceID).ReturnedInTime=false;
+    }
+
+    public void showOverdueRents()
+    {
+        foreach (var rental in rentalActs)
+        {
+            if (!rental.ReturnedInTime)
+            {
+                Console.WriteLine(rental);
+            }
+        }
+    }
+    
+    
+
     
     
     

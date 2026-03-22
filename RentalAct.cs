@@ -7,18 +7,7 @@ public class RentalAct
     public DateTime RentalStartDate { get; set; }
     public DateTime RentalEndDate { get; set; }
     public bool ReturnedInTime { get; set; } = true;
-    public DateTime? ReturnDate
-    {
-        get;
-        set
-        {
-            ReturnDate =  value;
-            if ( ReturnDate > RentalEndDate)
-            {
-                ReturnedInTime = false;
-            }else ReturnedInTime = true;
-        }
-    }
+    public DateTime? ReturnDate { get; set;}
 
     public RentalAct(int deviceId, int userId, DateTime rentalStartDate, DateTime rentalEndDate)
     {
