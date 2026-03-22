@@ -130,7 +130,7 @@ public class RentalService
             Console.WriteLine(device);
         }}
 
-    public void showAvailibbleDevices()
+    public void showAvailibleDevices()
     {
         foreach (var device in devices)
         {
@@ -139,6 +139,37 @@ public class RentalService
                 Console.WriteLine(device);
             }
         }
+    }
+
+    public void showAllRentsForUser(int UserID)
+    {
+        if (!rentalActs.Any(x => x.UserId == UserID))
+        {
+            Console.WriteLine("No rental acts found");
+            
+        }
+        else
+        {
+            foreach (var rentalAct in rentalActs)
+            {
+                if (rentalAct.UserId == UserID)
+                {
+                    Console.WriteLine(rentalAct);
+                }
+            }
+        }
+    }
+
+    public void report()
+    {
+        Console.WriteLine($"Devices: {this.devices.Count}");
+        int availibleDevices = devices.FindAll(x => x.IsAvailable).Count;
+        int notAvailibleDevices = devices.FindAll(x => !x.IsAvailable).Count;
+        Console.WriteLine($"Available devices: {availibleDevices}");
+        Console.WriteLine($"Not available devices: {notAvailibleDevices}");
+        Console.WriteLine($"Rental acts: {rentalActs.Count}");
+        int overdueRentalActs = rentalActs.FindAll(x => !x.ReturnedInTime).Count;
+        Console.WriteLine($"Overdue rental acts: {overdueRentalActs}");
     }
     
     
