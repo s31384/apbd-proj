@@ -1,0 +1,4 @@
+Kohezja – klasa RentService odpowiada wyłącznie za urządzenia i ich wynajem. UserService – odpowiada za wszystkie dane i operacje dotyczące użytkowników.
+Coupling – starałem się jak najczęściej stosować metody, zamiast sięgać bezpośrednio do danych konkretnych obiektów.
+Klasy Person i Device zrobiłem abstrakcyjnymi, ponieważ wszyscy użytkownicy i urządzenia dzielą te same cechy niezbędne do wynajmu.
+W moim projekcie klasa UserService służy wyłącznie do obsługi operacji dotyczących użytkowników, więc jeśli zajdzie potrzeba zmiany sposobu, w jaki dana operacja wpływa na użytkownika, wystarczy zmienić klasę UserService
